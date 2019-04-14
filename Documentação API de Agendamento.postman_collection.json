@@ -1,0 +1,901 @@
+{
+	"info": {
+		"_postman_id": "6d912979-a0e6-4459-b98e-4524461bf10a",
+		"name": "Documentação API de Agendamento",
+		"description": "# Apresentação\n\nDocumentação para utilização da API de Agendamento de Horário.<br>\n\n# Sobre\n\nCom esta API você pode:<br>\n<br>\n-Cadastrar regras para dias específicos, podendo cadastrar diversas faixas de horário.<br>\n-Listar todas as faixas de horário para cada dia específico.<br>\n-Listar faixas de horários em um intervalo de tempo para dias específicos.<br>\n-Remover uma faixa de horário específico para cada dia cadastrado.<br>\n-Remover todas as faixas de horário para o dia especifico.<br><br>\n<br>\n-Cadastrar regra diária, ou seja, uma faixa de horário para todos os dias.<br>\n-Listar o horário cadastrado.<br>\n-Listar o horário cadastrado para um intervalo de datas.<br>\n-Remover horário cadastrado.<br>\n<br>\n-Cadastrar dias da semana, ou seja, uma faixa de horário para cada dia da semana.<br>\n-Listar todos os dias da semana cadastrado.<br>\n-Listar horários de dia da semana para um intervalo de datas.<br>\n-Remover dias da semanas cadastrados.<br>\n\n\n# Autenticação\n\nNão é preciso utilizar autenticação para fazer requisições a esta API.<br>\n\n# Error Codes\n\n**400 – Bad Request**\nDados enviados de forma incorreta ou fora do padrão e resultados indesejados.\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Regras para Dias Específicos",
+			"item": [
+				{
+					"name": "Registrar Dia",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+								"exec": [
+									"tests[\"Registrar dados corretos\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"16:00\", \"end\": \"17:30\" }\n}\n"
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/day/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"day",
+								"register"
+							]
+						},
+						"description": "Esse endpoint registra regras de horários específicos para determinados dias.\n\nPara variável day tem que ser no formato DD-MM-YYYY, caso estiver fora do formato ele retorna erro.\n\nPara a variável intervals será passado duas variáveis, start e end ambas as variáveis tem que estar no formato HH:mm se não retorna erro, caso o horário de end for maior que de start também retorna erro."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/register/day",
+									"path": [
+										"register",
+										"day"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Listar Dia",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3e5befe0-0a68-48dd-bfdb-6b0756ae9622",
+								"exec": [
+									"tests[\"Listar Dia\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/day/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"day",
+								"list"
+							]
+						},
+						"description": "Esse endpoint lista todos os dias cadastrados."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/list/shedules",
+									"path": [
+										"list",
+										"shedules"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Listar Dia Com Intervalo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a6a6911-1750-4ff2-97b0-4f0d1058685e",
+								"exec": [
+									"tests[\"Listar Dia com intervalo\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/day/interval/:fromdate/:todate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"day",
+								"interval",
+								":fromdate",
+								":todate"
+							],
+							"variable": [
+								{
+									"key": "fromdate",
+									"value": "23-01-2019"
+								},
+								{
+									"key": "todate",
+									"value": "26-01-2019"
+								}
+							]
+						},
+						"description": "Esse endpoint lista os dados para uma faixa de datas.\n\nPara os parâmetros fromdate e todate é esperado dados no formato\nDD-MM-YYYY, caso esteja errado acusa erro, caso a data de fromdate for depois de todate também retorna erro."
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Intervalo Específico",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+								"exec": [
+									"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"day",
+								"remove",
+								":date",
+								":start",
+								":end"
+							],
+							"variable": [
+								{
+									"key": "date",
+									"value": "25-01-2019"
+								},
+								{
+									"key": "start",
+									"value": "17:00"
+								},
+								{
+									"key": "end",
+									"value": "17:30"
+								}
+							]
+						},
+						"description": "Esse endpoint deleta um horário específico que estiver registrado.\n\nPara o parâmetro date é esperado DD-MM-YYYY, caso venha fora do padrão retorna erro.\n\nPara os parâmetros start e end é esperado o formato HH:mm, caso fora do padrão retorna erro."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/remove/register/:id",
+									"path": [
+										"remove",
+										"register",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Remover Dia",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07d305b9-9635-4b4b-ab2a-4e6868d10dfb",
+								"exec": [
+									"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/day/remove/:date",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"day",
+								"remove",
+								":date"
+							],
+							"variable": [
+								{
+									"key": "date",
+									"value": "23-01-2019"
+								}
+							]
+						},
+						"description": "Esse endpoint deleta um dia específico e todos os seus horários.\n\nPara o parâmetro date é esperado DD-MM-YYYY, caso venha fora do padrão retorna erro."
+					},
+					"response": []
+				}
+			],
+			"description": "Definições de endpoints para dias específicos.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4ce9c160-ef41-45d6-801a-1c04e037e93c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "71ca45f5-a757-4239-b74f-5fc4b6b336df",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Regras Diárias",
+			"item": [
+				{
+					"name": "Registrar Horário",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5be0d4ed-add9-4a5e-a9df-e8c56334a3f7",
+								"exec": [
+									"tests[\"Dados registrados\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"intervals\":{ \"start\": \"12:00\", \"end\": \"13:30\" } \n\t\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/daily/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"daily",
+								"register"
+							]
+						},
+						"description": "Esse endpoint registra a disponibilidade de horário diariamente.\n\nPara a variável intervals será passado duas variáveis, start e end ambas as variáveis tem que estar no formato HH:mm se não retorna erro, caso o horário de end for maior que de start também retorna erro."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/register/dayli",
+									"path": [
+										"register",
+										"dayli"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Listar Horário",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08f3aab6-5c41-4c3e-aa2d-b681f4d6e1ba",
+								"exec": [
+									"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/daily/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"daily",
+								"list"
+							]
+						},
+						"description": "Esse endpoint lista o horário cadastrado no endpoint de registrar horário."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/list/interval/:start/:end",
+									"path": [
+										"list",
+										"interval",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "start"
+										},
+										{
+											"key": "end"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Listar Horários com Intervalo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a6a6911-1750-4ff2-97b0-4f0d1058685e",
+								"exec": [
+									"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"daily",
+								"interval",
+								":fromdate",
+								":todate"
+							],
+							"variable": [
+								{
+									"key": "fromdate",
+									"value": "27-01-2019"
+								},
+								{
+									"key": "todate",
+									"value": "30-01-2019"
+								}
+							]
+						},
+						"description": "Esse endpoint lista o horário cadastrado no endpoint de cadastrar horário na faixa de data passada.\n\nPara os parâmetros fromdate e todate é esperado dados no formato\nDD-MM-YYYY, caso esteja errado acusa erro, caso a data de fromdate for depois de todate também retorna erro."
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Horário Cadastrado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "07d305b9-9635-4b4b-ab2a-4e6868d10dfb",
+								"exec": [
+									"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/daily/remove",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"daily",
+								"remove"
+							]
+						},
+						"description": "Esse endpoint remove o horário cadastrado no endpoint de registrar horário."
+					},
+					"response": []
+				}
+			],
+			"description": "Definições de endpoints para as regras diárias.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8f5b44c3-fb16-48ae-af53-2a75746f4ea9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b323cf4c-29d3-4bd2-ad90-5fa2f2a1be9e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Regras de Dias da Semana",
+			"item": [
+				{
+					"name": "Registrar Dias da Semana",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "db7095fb-c41f-4fab-a90a-8dfc3b64dfc5",
+								"exec": [
+									"tests[\"Dados registrados\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"daysofweek\": [0,1,2,3,4,5,6],\n    \"intervals\": { \"start\": \"14:00\", \"end\": \"18:30\" }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/weekdays/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"weekdays",
+								"register"
+							]
+						},
+						"description": "Esse endpoint registra os dias da semana e o horário para esses dias.\n\nPara a variável daysofweek é passado um vetor com os dias da semana que você deseja cadastrar a faixa de horário:<br>\n0 - Domingo<br>\n1 - Segunda<br>\n2 - Terça<br>\n3 - Quarta<br>\n4 - Quinta<br>\n5 - Sexta<br>\n6 - Sábado<br>\nSe for passado mais que sete valores no vetor retorna erro, se for passado algum valor fora da faixa de 0 a 6 retorna erro.\n\n\nPara a variável intervals será passado duas variáveis, start e end, ambas as variáveis tem que estar no formato HH:mm se não retorna erro, caso o horário de end for maior que de start também retorna erro."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/register/week",
+									"path": [
+										"register",
+										"week"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Listar todos os Dias da Semana Cadastrados",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08f3aab6-5c41-4c3e-aa2d-b681f4d6e1ba",
+								"exec": [
+									"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/weekdays/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"weekdays",
+								"list"
+							]
+						},
+						"description": "Esse endpoint lista todos os dias da semana cadastrados."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/list/interval/:start/:end",
+									"path": [
+										"list",
+										"interval",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "start"
+										},
+										{
+											"key": "end"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Listar Dias da Semana em um Intervalo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6a6a6911-1750-4ff2-97b0-4f0d1058685e",
+								"exec": [
+									"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/weekdays/interval/:fromdate/:todate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"weekdays",
+								"interval",
+								":fromdate",
+								":todate"
+							],
+							"variable": [
+								{
+									"key": "fromdate",
+									"value": "23-01-2019"
+								},
+								{
+									"key": "todate",
+									"value": "26-01-2019"
+								}
+							]
+						},
+						"description": "Esse endpoint lista a faixa de horário cadastrado em dias da semana, para uma faixa de datas.\n\nPara os parâmetros fromdate e todate é esperado dados no formato\nDD-MM-YYYY, caso esteja errado acusa erro, caso a data de fromdate for depois de todate também retorna erro."
+					},
+					"response": []
+				},
+				{
+					"name": "Remover Dias da Semana",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f10b3a1c-94a7-42ea-a097-42dc2a265df8",
+								"exec": [
+									"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/schedule/weekdays/remove/:dayofweek",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"schedule",
+								"weekdays",
+								"remove",
+								":dayofweek"
+							],
+							"variable": [
+								{
+									"key": "dayofweek",
+									"value": "[0,1,2,3,4,5,6]"
+								}
+							]
+						},
+						"description": "Esse endpoint remove os dias da semana registrados.\n\nPara o parâmetro daysofweek é passado um vetor com os dias da semana que você deseja remover:<br>\n0 - Domingo<br>\n1 - Segunda<br>\n2 - Terça<br>\n3 - Quarta<br>\n4 - Quinta<br>\n5 - Sexta<br>\n6 - Sábado<br>\nSe for passado mais que sete valores no vetor retorna erro, se for passado algum valor fora da faixa de 0 a 6 retorna erro.\nSe for passado um não vetor como parâmetro acusa erro.\n"
+					},
+					"response": []
+				}
+			],
+			"description": "Lista as regras de endpoints para dias da semana.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "09559398-3c72-4262-9dbc-0b54fac6806f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9334ffc7-e4f2-41d7-92b4-9a419be2ca7f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ad0a1cc2-10a8-4f10-b5cf-e5bfb726c85c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a3b9e3fd-af20-46b6-8bda-9aee3cbf7de5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

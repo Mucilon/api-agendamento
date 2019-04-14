@@ -1,0 +1,3517 @@
+{
+	"info": {
+		"_postman_id": "3777f3fd-604e-46e0-adda-a630fce7c4d9",
+		"name": "Teste Automatizado",
+		"description": "Para realizar o teste automatizado é nescessario Deletar o Arquivo Database.json e executar o programa novamente para criar um novo, para ser adicionado dados conhecidos.\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Regras Dia",
+			"item": [
+				{
+					"name": "Regas Dia - Post",
+					"item": [
+						{
+							"name": "Registrar dia com data errada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "93a59804-9ee1-48fc-93d2-5f1615870b40",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-209\",\n    \"intervals\": { \"start\": \"16:00\", \"end\": \"16:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia com hora inicial errada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"1600\", \"end\": \"16:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia com hora final errada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"1600\", \"end\": \"16:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia com hora final maior que inicial",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"17:00\", \"end\": \"16:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia ",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Dados registrados\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"16:00\", \"end\": \"17:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia com horario repetido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"16:00\", \"end\": \"16:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registar dia com horario antes do inicial e entre inicial e final",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cb54cd7c-b6d1-42a0-8d03-638e8233cd77",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"15:00\", \"end\": \"16:20\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registar dia com horario  entre inicial e final e depois do final",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0e2bf656-7b33-4b11-b44a-aa253da94d8e",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"25-01-2019\",\n    \"intervals\": { \"start\": \"16:20\", \"end\": \"17:00\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Dados registrados\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"day\": \"23-01-2019\",\n    \"intervals\": { \"start\": \"16:00\", \"end\": \"17:30\" }\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"description": "Esta pasta apresenta as regras para Gravar os dados de disponibilidade de horario por dia, contem todos os posts incluindo com erros para ser executado os test pelo runner do postman",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b971da47-9526-450e-bf98-d9e79906562f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a794e27e-a421-41bb-bc87-d7865b3746ad",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Regras Dia - Get",
+					"item": [
+						{
+							"name": "Listar Dia",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3e5befe0-0a68-48dd-bfdb-6b0756ae9622",
+										"exec": [
+											"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"list"
+									]
+								},
+								"description": "list available rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/list/shedules",
+											"path": [
+												"list",
+												"shedules"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Listar dia com intervalo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6a6a6911-1750-4ff2-97b0-4f0d1058685e",
+										"exec": [
+											"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "23-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "26-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo fromdate errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "24-1-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo todate errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "24-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-201"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo data final > inicial",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "29-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo fora dos horarios registrados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Listou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "28-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "29-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "873ea319-843c-4e13-9ffb-8d56c0b6393a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1c01affa-748a-437a-800b-bb3434a8663f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Regras Dia - Delete",
+					"item": [
+						{
+							"name": "Remover intervalo especifico data com formato errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "2019-12-01"
+										},
+										{
+											"key": "start",
+											"value": "17:00"
+										},
+										{
+											"key": "end",
+											"value": "17:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover intervalo especifico com hora inicial no formato errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "25-01-2019"
+										},
+										{
+											"key": "start",
+											"value": "17:70"
+										},
+										{
+											"key": "end",
+											"value": "17:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover intervalo especifico hora final com formato errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "25-01-2019"
+										},
+										{
+											"key": "start",
+											"value": "17:00"
+										},
+										{
+											"key": "end",
+											"value": "24:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover intervalo especifico hora final antes da inicial",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "25-01-2019"
+										},
+										{
+											"key": "start",
+											"value": "18:00"
+										},
+										{
+											"key": "end",
+											"value": "17:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover intervalo especifico com data fora do horario existentes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Não Achou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "30-01-2019"
+										},
+										{
+											"key": "start",
+											"value": "17:00"
+										},
+										{
+											"key": "end",
+											"value": "17:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover intervalo especifico com hora fora dos intervalos existentes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Não Achou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "25-01-2019"
+										},
+										{
+											"key": "start",
+											"value": "20:00"
+										},
+										{
+											"key": "end",
+											"value": "20:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover intervalo especifico",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b7d65917-f0f8-4faa-a574-405e0a7168a8",
+										"exec": [
+											"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date/:start/:end",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date",
+										":start",
+										":end"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "25-01-2019"
+										},
+										{
+											"key": "start",
+											"value": "16:00"
+										},
+										{
+											"key": "end",
+											"value": "17:30"
+										}
+									]
+								},
+								"description": "delete day rules"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/remove/register/:id",
+											"path": [
+												"remove",
+												"register",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Remover dia com data no formato errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5e968612-95f4-4bb3-bc94-ce318ee025cf",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "24-01-19"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia com data fora das datas existentes",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fee0df1c-f78d-4393-a186-a590e471b2e5",
+										"exec": [
+											"tests[\"Não Achou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "20-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "07d305b9-9635-4b4b-ab2a-4e6868d10dfb",
+										"exec": [
+											"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/day/remove/:date",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"day",
+										"remove",
+										":date"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "23-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aa873100-3b0e-4f84-b5c5-a5ed32e48daf",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fae937b3-7e82-48d5-83cd-3a9e0f51c38d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Regras Diarias",
+			"item": [
+				{
+					"name": "Regras Diarias - Post",
+					"item": [
+						{
+							"name": "Registrar dia com hora inicial errada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"intervals\":{ \"start\": \"1600\", \"end\": \"16:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia com hora final errada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"intervals\":{ \"start\": \"16:00\", \"end\": \"24:30\" } \n\t\n}\n\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia com hora final maior que inicial",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e31c3315-1b79-4801-b4e0-a91e4e01c4b6",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"intervals\":{ \"start\": \"17:00\", \"end\": \"16:30\" } \n\t\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/day",
+											"path": [
+												"register",
+												"day"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar dia",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5be0d4ed-add9-4a5e-a9df-e8c56334a3f7",
+										"exec": [
+											"tests[\"Dados registrados\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"intervals\":{ \"start\": \"12:00\", \"end\": \"13:30\" } \n\t\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"register"
+									]
+								},
+								"description": "register timetable for everydays"
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/dayli",
+											"path": [
+												"register",
+												"dayli"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2828777e-39f6-46fd-ac6b-457464923aed",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e85c7215-ac98-428d-a125-ee29a84f98e2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Regras Diarias - Get",
+					"item": [
+						{
+							"name": "Listar Dia",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "08f3aab6-5c41-4c3e-aa2d-b681f4d6e1ba",
+										"exec": [
+											"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/list/interval/:start/:end",
+											"path": [
+												"list",
+												"interval",
+												":start",
+												":end"
+											],
+											"variable": [
+												{
+													"key": "start"
+												},
+												{
+													"key": "end"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Listar dias com intervalo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6a6a6911-1750-4ff2-97b0-4f0d1058685e",
+										"exec": [
+											"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "27-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "30-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo fromdate errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "24-1-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo todate errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "24-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-201"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar dia com intervalo data final > inicial",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "29-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9ca88c85-a027-4edf-b4b1-23a8c9f308e6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fe9acdf0-d861-4d7a-936d-94ca56095f8d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Regras Diarias - Delete",
+					"item": [
+						{
+							"name": "Remover dia",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "07d305b9-9635-4b4b-ab2a-4e6868d10dfb",
+										"exec": [
+											"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/remove",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"remove"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Regras Dias da Semana",
+			"item": [
+				{
+					"name": "Regras Dias da Semana - Post",
+					"item": [
+						{
+							"name": "Registrar Dias da Semana horario inicial errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2bbe381e-7d09-4b4e-84b2-95b85c8c0b3f",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [1,2],\n    \"intervals\": { \"start\": \"10:0\", \"end\": \"18:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar Dias da Semana horario final errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7254fdce-5ffa-451c-bb79-988f3dec5255",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [1,2],\n    \"intervals\": { \"start\": \"10:00\", \"end\": \"8:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar Dias da Semana horario inicial > final",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f7c95205-d01a-4f75-8d6f-ba3acc944b34",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [1,2],\n    \"intervals\": { \"start\": \"16:00\", \"end\": \"15:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar Dias da Semana  mais que 7 entradas de dias da semana",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5068c1da-5f10-4ac6-b0ae-de260db595fb",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [0,1,2,3,4,5,6,7],\n    \"intervals\": { \"start\": \"14:00\", \"end\": \"18:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar Dias da Semana  nenhuma entrada de dias da semana",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5596db9e-d118-49d3-ae1c-d48a9198820e",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [],\n    \"intervals\": { \"start\": \"10:0\", \"end\": \"18:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar Dias da Semana entrada de dia da semana fora do range",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "05fc0587-888a-4e0b-9eaa-2a9ae68e8a72",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [1,2,9],\n    \"intervals\": { \"start\": \"10:0\", \"end\": \"18:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Registrar Dias da Semana",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "db7095fb-c41f-4fab-a90a-8dfc3b64dfc5",
+										"exec": [
+											"tests[\"Dados registrados\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"daysofweek\": [0,1,2,3,4,5,6],\n    \"intervals\": { \"start\": \"14:00\", \"end\": \"18:30\" }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/register/week",
+											"path": [
+												"register",
+												"week"
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Regras Dias da Semana - Get",
+					"item": [
+						{
+							"name": "Listar Todos os Listar Dias Semana",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "08f3aab6-5c41-4c3e-aa2d-b681f4d6e1ba",
+										"exec": [
+											"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "/list/interval/:start/:end",
+											"path": [
+												"list",
+												"interval",
+												":start",
+												":end"
+											],
+											"variable": [
+												{
+													"key": "start"
+												},
+												{
+													"key": "end"
+												}
+											]
+										}
+									},
+									"code": 200,
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Listar Dias Semana com intervalo",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "6a6a6911-1750-4ff2-97b0-4f0d1058685e",
+										"exec": [
+											"tests[\"Listou Corretamente\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "23-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "26-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Dias Semana com intervalo fromdate errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "24-1-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Dias Semana intervalo todate errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/daily/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"daily",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "24-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-201"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Listar Dias Semana com intervalo data final > inicial",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5b54830b-9114-4f2f-aabf-0a826b7abdf5",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/interval/:fromdate/:todate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"interval",
+										":fromdate",
+										":todate"
+									],
+									"variable": [
+										{
+											"key": "fromdate",
+											"value": "29-01-2019"
+										},
+										{
+											"key": "todate",
+											"value": "27-01-2019"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Regras Dias da Semana - Delete",
+					"item": [
+						{
+							"name": "Remover dia da semana parametro errado",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d88fc647-1441-4fb6-a414-cbab1fac9d9d",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:daysofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":daysofweek"
+									],
+									"variable": [
+										{
+											"key": "daysofweek",
+											"value": "9"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia da semana valor fora do range",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d88fc647-1441-4fb6-a414-cbab1fac9d9d",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:daysofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":daysofweek"
+									],
+									"variable": [
+										{
+											"key": "daysofweek",
+											"value": "[1,8]"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia da semana nenhum dado no vetor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d88fc647-1441-4fb6-a414-cbab1fac9d9d",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:dayofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":dayofweek"
+									],
+									"variable": [
+										{
+											"key": "dayofweek",
+											"value": "[]"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia da semana mais que 7 dados no vetor",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d88fc647-1441-4fb6-a414-cbab1fac9d9d",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:dayofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":dayofweek"
+									],
+									"variable": [
+										{
+											"key": "dayofweek",
+											"value": "[0,1,2,3,4,5,6,7]"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia da semana passando json com erro",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d88fc647-1441-4fb6-a414-cbab1fac9d9d",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:dayofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":dayofweek"
+									],
+									"variable": [
+										{
+											"key": "dayofweek",
+											"value": "[0,1,2,3,4,5,6,]"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover Dia da Semana",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f10b3a1c-94a7-42ea-a097-42dc2a265df8",
+										"exec": [
+											"tests[\"Removeu com sucesso\"] = responseCode.code === 200"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:dayofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":dayofweek"
+									],
+									"variable": [
+										{
+											"key": "dayofweek",
+											"value": "[0,1,2,3,4,5,6]"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remover dia da semana sem dados cadastrados",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d88fc647-1441-4fb6-a414-cbab1fac9d9d",
+										"exec": [
+											"tests[\"Não Aceitou\"] = responseCode.code === 400"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:3000/schedule/weekdays/remove/:dayofweek",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"schedule",
+										"weekdays",
+										"remove",
+										":dayofweek"
+									],
+									"variable": [
+										{
+											"key": "dayofweek",
+											"value": "[0,1,2,3,4,5,6]"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e723898e-0de1-4714-bac6-4cb7f7aedace",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "34b6aaed-b0dc-402d-97af-5cc460e5142b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "22cbb4ac-45f7-4e60-9715-e3a7f772918c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "85c86a88-e75a-425f-adcc-46a66afded2d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
